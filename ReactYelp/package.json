@@ -7,5 +7,9 @@
   },
   "dependencies": {
     "react-native": "^0.19.0"
+  },
+  "devDependencies": {
+    "react-native-communications": "^0.2.3",
+    "react-native-navbar": "^1.2.0"
   }
 }

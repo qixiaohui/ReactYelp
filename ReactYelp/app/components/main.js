@@ -23,7 +23,8 @@ var Main = React.createClass ({
     }
   },
     fetchSearch(term, location) {
-        fetch(urls.url.search+term+'/'+location)
+        this.setState({term: term, location: location});
+        fetch(urls.url.search+term+'/'+location+'/0')
           .then((response) => response.json())
           .then((responseData) => {
             this.goToNext(responseData.businesses);
@@ -35,10 +36,12 @@ var Main = React.createClass ({
       this.fetchSearch(this.state.term, this.state.location);
    },
     goToNext(data){
+        this.state.animating = false;
         this.props.navigator.push({
             name: 'menu page',
-            index: 1,
-            passProps: {data: data}
+            index: 2,
+            passProps: {data: data, term: this.state.term, location: this.state.location},
+            
         });
     },
   render() {

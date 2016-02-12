@@ -19,9 +19,11 @@ var styles = StyleSheet.create({
     line: {
         flex: 1,
         height: 1,
-        backgroundColor: '#000000',
-        paddingLeft: 10,
-        paddingRight: 10,
+        backgroundColor: '#BEBEBE',
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop:5,
+        marginBottom: 5,
     }
 });
 

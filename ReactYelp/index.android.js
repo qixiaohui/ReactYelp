@@ -15,11 +15,12 @@ var {
     
 var Main = require("./app/components/main");
 var MenuList = require("./app/components/MenuList");
+var Detail = require("./app/components/Detail");
 
 class App extends Component{
   render() {
     return (
-    <Navigator initialRoute={{name: 'Scene', index: 0}} 
+    <Navigator initialRoute={{name: 'Scene', index: 0, component: Main,}} 
     renderScene={this.renderScene.bind(this)}
     configureScene={(route) => {
     if (route.sceneConfig) {
@@ -33,11 +34,15 @@ class App extends Component{
         var routeIndex = route.index;
         if(routeIndex === 0){
             return(
-                <Main navigator={navigator}></Main>
+                <Main navigator={navigator} route={route}></Main>
             );
         }else if(routeIndex === 1){
             return(
-                <MenuList navigator={navigator}></MenuList>
+                <MenuList navigator={navigator} route={route}></MenuList>
+            );
+        }else if(routeIndex === 2){
+            return(
+                <Detail navigator={navigator} route={route}></Detail>
             );
         }
     }
